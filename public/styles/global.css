@@ -308,7 +308,6 @@ textarea:focus {
 
 button {
   width: 49%;
-  margin-bottom: 1.5rem;
   padding: .5rem 1rem;
   color: #888;
   font-family: Oswald, sans-serif;
@@ -402,8 +401,8 @@ button::before,
   font-weight: 100;
 }
 
-[type="submit"]::before {
-  content: "\f218\0020";
+[action="/bands"] [type="submit"]::before {
+  content: "\f001\0020";
 }
 
 [type="reset"]::before {

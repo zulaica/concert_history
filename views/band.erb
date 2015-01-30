@@ -1,0 +1,30 @@
+<% band = Band.find(@band_id) %>
+<section>
+<h2><%= band.band_name() %></h2>
+</section>
+
+<section>
+  <h3>Edit this band's listing</h3>
+  <form action="/bands/<%= band.id() %>" method="post">
+    <input name="_method" hidden value="patch">
+    <fieldset>
+      <legend>Change band name</legend>
+      <label for="band_name">Band name</label>
+      <input name="band_name" value="<%= band.band_name() %>" />
+    </fieldset>
+    <button type="submit">Edit band</button>
+    <button type="reset">Clear form</button>
+  </form>
+
+  <form action="/bands/<%= band.id() %>" method="post">
+    <input hidden name="_method" value="delete">
+    <fieldset>
+      <legend>Delete this band: (This can't be undone!)</legend>
+      <button type="submit">Delete band</button>
+    </fieldset>
+  </form>
+</section>
+
+<section>
+  <a href="/">View all bands</a>
+</section>
