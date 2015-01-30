@@ -122,7 +122,9 @@ html {
   align-items: center;
   padding: 1rem;
   height: 100%;
-  background: #d0dad8;
+  background: #bdbdbd;
+  background-image: url("../images/Justice_in_concert.jpg");
+  background-size: cover;
   color: #222;
   font-family: 'Playfair Display', serif;
   font-weight: 400;
@@ -199,6 +201,9 @@ a[href*="youtube.com"]::before {
 }
 a[href*="github.com"]::before {
   content: "\f09b";
+}
+a[href*="flickr.com/people"]::before {
+  content: "\f16e";
 }
 
 header,
