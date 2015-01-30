@@ -33,6 +33,7 @@ delete("/bands/:id") do
   @band_id = params.fetch("id").to_i()
   band = Band.find(@band_id)
   band.delete()
+  band.venues.delete()
   redirect("/")
 end
 
@@ -40,4 +41,16 @@ post("/venues") do
   venue_name= params.fetch("venue_name")
   Venue.create({:venue_name=> venue_name})
   redirect("/")
+end
+
+post("/performances") do
+  @band_id = params.fetch("band_id").to_i()
+  @band = Band.find(@band_id)
+  @venue_ids = params.fetch("venue_ids")
+  @venue_ids.each do |venue|
+    the_venue = Venue.find(venue.to_i())
+    @band.venues.push([the_venue])
+  end
+  url = "/bands/" + @band_id.to_s()
+  redirect(url)
 end

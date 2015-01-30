@@ -1,10 +1,21 @@
 <% band = Band.find(@band_id) %>
+<% venues = Venue.all() %>
 <section>
 <h2><%= band.band_name() %></h2>
+<% if band.venues.any?() %>
+<p>has performed at:</p>
+<ul>
+  <% band.venues.each() do |venue| %>
+  <li><%= venue.venue_name() %></li>
+  <% end %>
+</ul>
+<% else %>
+<p>Add venues <%= band.band_name() %> has performed at below.</p>
+<% end %>
 </section>
 
 <section>
-  <h3>Edit this band's listing</h3>
+  <h3>Edit <%= band.band_name() %>&rsquo;s listing</h3>
   <form action="/bands/<%= band.id() %>" method="post">
     <input name="_method" hidden value="patch">
     <fieldset>
@@ -26,5 +37,24 @@
 </section>
 
 <section>
-  <a href="/">View all bands</a>
+  <h3>Add a venue <%= band.band_name() %> has performed at</h3>
+  <form action="/performances" method="post">
+    <input hidden value="<%= band.id() %>" name="band_id">
+    <fieldset>
+      <ul>
+        <% venues.each do |venue| %>
+        <li>
+          <input type="checkbox" name="venue_ids[]" value="<%= venue.id() %>" id="<%= venue.id() %>">
+          <label for="<%= venue.id() %>"><%= venue.venue_name() %></label>
+        </li>
+        <% end %>
+      </ul>
+    </fieldset>
+    <button type="submit">Update venues</button>
+    <button type="reset">Clear form</button>
+  </form>
+</section>
+
+<section>
+  <a href="/">Back</a>
 </section>
