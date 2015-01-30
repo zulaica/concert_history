@@ -402,8 +402,12 @@ button::before,
   font-weight: 100;
 }
 
-[action="/bands"] [type="submit"]::before {
+[action*="/bands"] [type="submit"]::before {
   content: "\f001\0020";
+}
+
+[action*="/venues"] [type="submit"]::before {
+  content: "\f0f7\0020";
 }
 
 [type="reset"]::before {

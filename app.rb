@@ -5,6 +5,7 @@ Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get("/") do
   @bands = Band.all()
+  @venues = Venue.all()
   erb(:index)
 end
 
@@ -32,5 +33,11 @@ delete("/bands/:id") do
   @band_id = params.fetch("id").to_i()
   band = Band.find(@band_id)
   band.delete()
+  redirect("/")
+end
+
+post("/venues") do
+  venue_name= params.fetch("venue_name")
+  Venue.create({:venue_name=> venue_name})
   redirect("/")
 end

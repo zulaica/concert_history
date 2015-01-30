@@ -1,4 +1,5 @@
 <section>
+  <h3>Bands</h3>
   <% if Band.any?() %>
   <ul>
     <% @bands.each() do |band| %>
@@ -8,8 +9,7 @@
   <% else %>
   <p>Add a band using the form below.</p>
   <% end %>
-</section>
-<section>
+
   <form action="/bands" method="post">
     <fieldset>
       <legend>Add a band</legend>
@@ -17,6 +17,29 @@
       <input name="band_name" placeholder="Band name" />
     </fieldset>
     <button type="submit">Add band</button>
+    <button type="reset">Clear form</button>
+  </form>
+</section>
+
+<section>
+  <h3>Venues</h3>
+  <% if Venue.any?() %>
+  <ul>
+    <% @venues.each() do |venue| %>
+    <li><%= venue.venue_name() %></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>Add a venue using the form below.</p>
+  <% end %>
+
+  <form action="/venues" method ="post">
+    <fieldset>
+      <legend>Add a venue</legend>
+      <label for="venue_name">Venue name</label>
+      <input name="venue_name" placeholder="Venue name" />
+    </fieldset>
+    <button type="submit">Add venue</button>
     <button type="reset">Clear form</button>
   </form>
 </section>
