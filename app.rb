@@ -11,7 +11,7 @@ end
 
 post("/bands") do
   band_name= params.fetch("band_name")
-  Band.create({:band_name=> band_name})
+  Band.create({:band_name => band_name})
   redirect("/")
 end
 
@@ -39,7 +39,7 @@ end
 
 post("/venues") do
   venue_name= params.fetch("venue_name")
-  Venue.create({:venue_name=> venue_name})
+  Venue.create({:venue_name => venue_name})
   redirect("/")
 end
 
