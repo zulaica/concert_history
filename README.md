@@ -20,15 +20,17 @@ $ gem install bundler
 ## Setup
 
 1. Clone this repository.
-2. Run Bundler.
-3. Make sure PostgreSQL is running.
-4. Launch the app.
-5. Enjoy!
+1. Run Bundler.
+1. Make sure PostgreSQL is running.
+1. Create database tables.
+1. Launch the app.
+1. Enjoy!
 
 ```
 $ git clone https://github.com/zulaica/concert_history.git
 $ bundle
 $ postgres
+$ rake db:create db:migrate
 $ ruby app.rb
 ```
 
