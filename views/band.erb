@@ -1,17 +1,17 @@
 <% band = Band.find(@band_id) %>
 <% venues = Venue.all() %>
 <section>
-<h2><%= band.band_name() %></h2>
-<% if band.venues.any?() %>
-<p>has performed at:</p>
-<ul>
-  <% band.venues.each() do |venue| %>
-  <li><%= venue.venue_name() %></li>
+  <h2><%= band.band_name() %></h2>
+  <% if band.venues.any?() %>
+  <p>has performed at:</p>
+  <ul>
+    <% band.venues.each() do |venue| %>
+    <li><%= venue.venue_name() %></li>
+    <% end %>
+  </ul>
+  <% else %>
+  <p>Add venues <%= band.band_name() %> has performed at below.</p>
   <% end %>
-</ul>
-<% else %>
-<p>Add venues <%= band.band_name() %> has performed at below.</p>
-<% end %>
 </section>
 
 <section>
