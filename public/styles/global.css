@@ -343,7 +343,7 @@ button:focus {
 
 [href="/"] {
   float: left; /* Admittedly a hack; need to look into why `section` and this link are colliding. */
-  margin: 1rem auto;
+  margin: 1.5rem auto auto;
   padding: .5rem 1rem;
   border: 0;
   background: #ddd;
@@ -370,6 +370,7 @@ button:focus {
 
 footer {
   height: 4rem;
+  margin-top: 1.5rem;
   border-top: 1px dashed #d0dad8;
 }
 footer p {
@@ -421,7 +422,8 @@ button::before,
   color: #fff;
 }
 
-[value="delete"] + fieldset button {
+[value="delete"] + fieldset + [type="submit"] {
+  width: 100%;
   background: #e5cccd;
   background-image: -webkit-linear-gradient(left, #d7686a 0%, #d7686a 50%, transparent 50%, transparent 100%);
   background-image: linear-gradient(to right, #d7686a 0%, #d7686a 50%, transparent 50%, transparent 100%);
@@ -429,13 +431,13 @@ button::before,
   background-position: 100%;
 }
 
-[value="delete"] + fieldset button::before {
+[value="delete"] + fieldset + [type="submit"]::before {
   content: "\f014\0020";
 }
 
-[value="delete"] + fieldset button:hover,
-[value="delete"] + fieldset button:active,
-[value="delete"] + fieldset button:focus {
+[value="delete"] + fieldset + [type="submit"]:hover,
+[value="delete"] + fieldset + [type="submit"]:active,
+[value="delete"] + fieldset + [type="submit"]:focus {
   color: #fff;
   background-position: 0%;
 }
