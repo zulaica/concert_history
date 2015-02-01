@@ -36,13 +36,14 @@ $ ruby app.rb
 
 ## Known Issues
 
-* Hyphenated band names do not retain their hyphen when saved.
+- Hyphenated band names do not retain their hyphen when saved. (Issue with ActiveSupport's #titlecase method.) [[2015-01-30]](https://github.com/zulaica/concert_history/issues/2)
+- Selecting "Update Venues" on the band page without a value selected throws a Sinatra server error. [[2015-02-01]](https://github.com/zulaica/concert_history/issues/1)
 
 ## To Do
 
-* CRUD functionality for Venues
-* More Venue data (City, Still Open/Closed)
-* Ability to add the date the band performed at a venue
+- CRUD functionality for Venues
+- More Venue data (City, Still Open/Closed)
+- Ability to add the date the band performed at a venue
 
 ## Credits
 
